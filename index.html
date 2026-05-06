@@ -3,23 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="AGPC – Empresa de Assistência Técnica. Soluções em manutenção e reparo." />
+    <meta name="description" content="AGPC Tech Solutions – Assistência Técnica em Computadores." />
     <title>AGPC – Assistência Técnica</title>
-
+ 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-
+ 
     <div class="bg-grid"></div>
     <div class="bg-glow"></div>
-
+ 
     <div id="container">
-
+ 
       <!-- COLUNA ESQUERDA (só desktop) -->
       <div id="left-col">
         <div class="logo-ring">
@@ -30,7 +29,7 @@
         <p class="subtitle">Soluções em manutenção e reparo</p>
         <div class="divider"></div>
         <p class="desc">
-          Especialistas em manutenção e reparo de equipamentos. Atendimento rápido, diagnóstico preciso e garantia em todos os serviços.
+          Especialistas em manutenção e reparo de computadores. Atendimento rápido, diagnóstico preciso e garantia em todos os serviços.
         </p>
         <div class="stats-row">
           <div class="stat">
@@ -42,16 +41,16 @@
             <span class="stat-lbl">Avaliação</span>
           </div>
           <div class="stat">
-            <span class="stat-num">2+</span>
+            <span class="stat-num">10+</span>
             <span class="stat-lbl">Anos</span>
           </div>
         </div>
       </div>
-
+ 
       <!-- COLUNA DIREITA / mobile completo -->
       <div id="right-col">
-
-        <!-- Perfil mobile (escondido no desktop) -->
+ 
+        <!-- Perfil mobile -->
         <div id="profile-mobile">
           <div class="logo-ring">
             <img src="./assets/logo-empresa2.png" alt="Logo da AGPC" />
@@ -61,26 +60,107 @@
           <p class="subtitle">Soluções em manutenção e reparo</p>
           <div class="divider"></div>
         </div>
-
-        <!-- Botões -->
+ 
+        <!-- Accordion -->
         <div id="direcionamento">
           <ul>
+ 
+            <!-- Quem somos -->
+           <!-- Quem somos -->
+<li class="accordion-item">
+  <button class="accordion-btn" aria-expanded="false" aria-controls="panel-1">
+    <span class="btn-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
+    <span class="btn-label">Quem somos nós?</span>
+    <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+  </button>
+  <div class="accordion-panel" id="panel-1">
+    <div class="accordion-content">
+      <p>A <strong>AGPC Tech Solutions</strong> nasceu com o objetivo de oferecer soluções completas em tecnologia, com foco em qualidade, agilidade e confiança.</p>
+      <p>Somos uma empresa especializada em assistência técnica e suporte para computadores, atendendo tanto clientes residenciais quanto empresas.</p>
+    </div>
+  </div>
+</li>
+ 
+            <!-- Serviços -->
+        <li class="accordion-item">
+  <button class="accordion-btn" aria-expanded="false">
+    <span class="btn-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+    <span class="btn-label">Serviços</span>
+    <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+  </button>
+
+  <div class="accordion-panel">
+    <div class="accordion-content">
+
+      <p class="services-intro">
+        Serviços em tecnologia focados em desempenho, segurança e confiabilidade.
+      </p>
+
+      <ul class="services-list">
+        <li>
+          <span class="service-icon"><i class="fa-solid fa-desktop"></i></span>
+          <div>
+            <strong>Manutenção</strong>
+            <span>Reparo de hardware e software.</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="service-icon"><i class="fa-solid fa-rotate"></i></span>
+          <div>
+            <strong>Formatação</strong>
+            <span>Instalação limpa e otimizada.</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="service-icon"><i class="fa-solid fa-memory"></i></span>
+          <div>
+            <strong>Upgrade</strong>
+            <span>Melhoria de desempenho.</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="service-icon"><i class="fa-solid fa-gauge-high"></i></span>
+          <div>
+            <strong>Otimização</strong>
+            <span>Mais velocidade e estabilidade.</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="service-icon"><i class="fa-solid fa-shield-halved"></i></span>
+          <div>
+            <strong>Segurança</strong>
+            <span>Remoção de vírus.</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="service-icon"><i class="fa-solid fa-screwdriver"></i></span>
+          <div>
+            <strong>Montagem</strong>
+            <span>PCs sob medida.</span>
+          </div>
+        </li>
+
+        <li>
+          <span class="service-icon"><i class="fa-solid fa-headset"></i></span>
+          <div>
+            <strong>Suporte</strong>
+            <span>Atendimento rápido.</span>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</li>
+ 
+            <!-- Contato WhatsApp -->
             <li>
-              <a href="#" target="_blank">
-                <span class="btn-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
-                <span class="btn-label">Quem somos nós?</span>
-                <span class="arrow">›</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" target="_blank">
-                <span class="btn-icon"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i></span>
-                <span class="btn-label">Serviços</span>
-                <span class="arrow">›</span>
-              </a>
-            </li>
-            <li>
-              <a href="https://wa.me/5531987903474" target="_blank">
+              <a href="https://wa.me/5531987903474" target="_blank" class="accordion-btn contact-btn">
                 <span class="btn-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
                 <span class="btn-label">Contato</span>
                 <span class="badge-whatsapp">
@@ -88,15 +168,17 @@
                 </span>
               </a>
             </li>
+ 
           </ul>
         </div>
-
+ 
         <footer>
-          <p>© 2026 <a href="#" target="_blank">Pedro do Monte</a>. Todos os direitos reservados.</p>
+          <p>© 2026 <a href="https://www.linkedin.com/in/pedro-do-monte-a228663ba?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank">Pedro do Monte</a>. Todos os direitos reservados.</p>
         </footer>
-
+ 
       </div>
     </div>
-
+ 
+    <script src="./script.js"></script>
   </body>
 </html>

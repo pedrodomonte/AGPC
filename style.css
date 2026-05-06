@@ -33,6 +33,7 @@ body {
   letter-spacing: 0.2px;
   position: relative;
   overflow-x: hidden;
+  padding: 32px 0;
 }
 
 .bg-grid {
@@ -60,7 +61,7 @@ body {
 }
 
 /* =====================
-   CONTAINER — MOBILE (padrão)
+   CONTAINER — MOBILE
 ===================== */
 #container {
   position: relative;
@@ -77,10 +78,7 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* COLUNA ESQUERDA escondida no mobile */
-#left-col {
-  display: none;
-}
+#left-col { display: none; }
 
 /* =====================
    PERFIL MOBILE
@@ -94,7 +92,7 @@ body {
 }
 
 /* =====================
-   LOGO RING (compartilhado)
+   LOGO RING
 ===================== */
 .logo-ring {
   width: 90px;
@@ -133,7 +131,7 @@ body {
 }
 
 /* =====================
-   TEXTOS (compartilhados)
+   TEXTOS
 ===================== */
 .company-tag {
   display: inline-block;
@@ -173,45 +171,52 @@ h1 {
 }
 
 /* =====================
-   BOTÕES
+   LISTA PRINCIPAL
 ===================== */
-ul {
+#direcionamento ul {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-ul li {
+#direcionamento > ul > li {
   animation: slideUp 0.5s ease both;
 }
-ul li:nth-child(1) { animation-delay: 0.1s; }
-ul li:nth-child(2) { animation-delay: 0.2s; }
-ul li:nth-child(3) { animation-delay: 0.3s; }
+#direcionamento > ul > li:nth-child(1) { animation-delay: 0.1s; }
+#direcionamento > ul > li:nth-child(2) { animation-delay: 0.2s; }
+#direcionamento > ul > li:nth-child(3) { animation-delay: 0.3s; }
 
 @keyframes slideUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-ul li a {
+/* =====================
+   BOTÃO BASE (accordion + link)
+===================== */
+.accordion-btn {
   display: flex;
   align-items: center;
   gap: 12px;
+  width: 100%;
   padding: 15px 18px;
   background: var(--btn-bg);
   border: 1px solid var(--btn-border);
   border-radius: 14px;
   text-decoration: none;
   color: var(--white);
+  font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
   transition: all 0.22s ease;
   position: relative;
   overflow: hidden;
+  text-align: left;
 }
 
-ul li a::before {
+.accordion-btn::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -220,17 +225,23 @@ ul li a::before {
   transition: opacity 0.22s;
 }
 
-ul li a:hover {
-  border-color: rgba(34, 197, 94, 0.3);
-  transform: translateY(-2px);
+.accordion-btn:hover,
+.accordion-btn[aria-expanded="true"] {
+  border-color: rgba(34, 197, 94, 0.35);
 }
 
-ul li a:hover::before {
+.accordion-btn:hover::before,
+.accordion-btn[aria-expanded="true"]::before {
   opacity: 1;
 }
 
-ul li a:active {
-  transform: scale(0.98);
+.accordion-btn:active {
+  transform: scale(0.99);
+}
+
+/* Botão de contato (link direto) */
+.contact-btn {
+  display: flex;
 }
 
 .btn-icon {
@@ -245,20 +256,121 @@ ul li a:active {
   font-size: 14px;
   flex-shrink: 0;
   transition: transform 0.2s;
+  position: relative;
+  z-index: 1;
 }
 
-ul li a:hover .btn-icon {
+.accordion-btn:hover .btn-icon {
   transform: rotate(8deg) scale(1.1);
 }
 
 .btn-label {
   flex: 1;
-  text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
-.arrow {
-  color: rgba(255, 255, 255, 0.2);
-  font-size: 16px;
+/* =====================
+   SETA ACCORDION
+===================== */
+.acc-arrow {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.accordion-btn[aria-expanded="true"] .acc-arrow {
+  transform: rotate(180deg);
+  color: var(--green);
+}
+
+/* =====================
+   PAINEL ACCORDION
+===================== */
+.accordion-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.accordion-panel.open {
+  max-height: 600px;
+}
+
+.accordion-content {
+  padding: 16px 18px 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accordion-content p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.7;
+}
+
+.accordion-content strong {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* =====================
+   LISTA DE SERVIÇOS
+===================== */
+.services-intro {
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  margin-bottom: 4px;
+}
+
+.services-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 4px;
+  padding-bottom: 8px;
+}
+
+.services-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  animation: none;
+}
+
+.service-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--green-dim);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.services-list li div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.services-list li strong {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 600;
+}
+
+.services-list li span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  line-height: 1.5;
 }
 
 /* =====================
@@ -277,6 +389,8 @@ ul li a:hover .btn-icon {
   border-radius: 99px;
   letter-spacing: 0.3px;
   white-space: nowrap;
+  position: relative;
+  z-index: 1;
 }
 
 /* =====================
@@ -305,14 +419,13 @@ footer a:hover {
 @media (min-width: 768px) {
 
   body {
-    align-items: center;
+    padding: 48px 24px;
   }
 
   #container {
-    max-width: 860px;
+    max-width: 880px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0;
     padding: 0;
     min-height: 520px;
     border: 1px solid rgba(34, 197, 94, 0.12);
@@ -322,7 +435,6 @@ footer a:hover {
     backdrop-filter: blur(6px);
   }
 
-  /* Coluna esquerda aparece */
   #left-col {
     display: flex;
     flex-direction: column;
@@ -332,29 +444,13 @@ footer a:hover {
     animation: fadeIn 0.7s ease both;
   }
 
-  #left-col .logo-ring {
-    margin-bottom: 22px;
-  }
+  #left-col .logo-ring { margin-bottom: 22px; }
+  #left-col h1 { font-size: 44px; margin-bottom: 6px; }
+  #left-col .subtitle { margin-bottom: 20px; }
+  #left-col .divider { margin-bottom: 20px; }
 
-  #left-col h1 {
-    font-size: 44px;
-    margin-bottom: 6px;
-  }
+  #profile-mobile { display: none; }
 
-  #left-col .subtitle {
-    margin-bottom: 20px;
-  }
-
-  #left-col .divider {
-    margin-bottom: 20px;
-  }
-
-  /* Perfil mobile some no desktop */
-  #profile-mobile {
-    display: none;
-  }
-
-  /* Coluna direita */
   #right-col {
     display: flex;
     flex-direction: column;
@@ -367,8 +463,8 @@ footer a:hover {
     margin-top: 24px;
   }
 
-  /* Descrição */
   .desc {
+    display: block;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.3);
     line-height: 1.75;
@@ -376,7 +472,6 @@ footer a:hover {
     max-width: 280px;
   }
 
-  /* Stats */
   .stats-row {
     display: flex;
     gap: 12px;
@@ -409,18 +504,7 @@ footer a:hover {
   }
 }
 
-/* Desktop desc e stats escondidos no mobile */
 .desc,
 .stats-row {
   display: none;
-}
-
-@media (min-width: 768px) {
-  .desc,
-  .stats-row {
-    display: block;
-  }
-  .stats-row {
-    display: flex;
-  }
 }
