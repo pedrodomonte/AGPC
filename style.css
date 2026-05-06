@@ -72,7 +72,7 @@ min-height: 100vh;
     text-align : center;
 }
 
-#profile p{
+#profile h1{
    font-size: 16px;
   font-weight: 500;
   line-height: 24px; /* 150% */
@@ -80,7 +80,7 @@ min-height: 100vh;
   color: #ffffff;
 }
 
-#profile p2{
+#profile p {
  font-size: 14px;
   opacity: 0.8;
   color: #ffffff;
@@ -163,6 +163,22 @@ ul li a:hover {
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
    transform: translateY(-5px) scale(1.02);
   box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+
+badge-whatsapp {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(37, 211, 102, 0.15);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #25d366;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.3px;
 }
 
 footer {
