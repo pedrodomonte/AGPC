@@ -3,9 +3,8 @@
 ===================== */
 :root {
   --green: #22c55e;
-  --green-dim: rgba(34, 197, 94, 0.12);
+  --green-dim: rgba(34, 197, 94, 0.1);
   --green-border: rgba(34, 197, 94, 0.22);
-  --green-glow: rgba(34, 197, 94, 0.08);
   --white: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.38);
   --btn-bg: rgba(255, 255, 255, 0.03);
@@ -27,10 +26,10 @@
 body {
   background-color: #060a06;
   font-family: 'DM Sans', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   letter-spacing: 0.2px;
   position: relative;
   overflow-x: hidden;
@@ -49,11 +48,11 @@ body {
 
 .bg-glow {
   position: fixed;
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
-  top: -100px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.09) 0%, transparent 70%);
+  top: -120px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
@@ -61,27 +60,32 @@ body {
 }
 
 /* =====================
-   CONTAINER PRINCIPAL
+   CONTAINER — MOBILE (padrão)
 ===================== */
 #container {
   position: relative;
   z-index: 1;
-  max-width: 400px;
   width: 100%;
+  max-width: 420px;
   margin: 0 auto;
   padding: 48px 24px 32px;
-  animation: fadeIn 0.8s ease both;
+  animation: fadeIn 0.7s ease both;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* COLUNA ESQUERDA escondida no mobile */
+#left-col {
+  display: none;
+}
+
 /* =====================
-   PERFIL / LOGO
+   PERFIL MOBILE
 ===================== */
-#profile {
+#profile-mobile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -89,18 +93,22 @@ body {
   margin-bottom: 8px;
 }
 
+/* =====================
+   LOGO RING (compartilhado)
+===================== */
 .logo-ring {
-  width: 96px;
-  height: 96px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   background: var(--green-dim);
   border: 1.5px solid rgba(34, 197, 94, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   position: relative;
   animation: pulse-ring 3s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
 .logo-ring::before {
@@ -113,8 +121,8 @@ body {
 }
 
 .logo-ring img {
-  width: 64px;
-  height: 64px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -124,7 +132,11 @@ body {
   50%       { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
 }
 
+/* =====================
+   TEXTOS (compartilhados)
+===================== */
 .company-tag {
+  display: inline-block;
   font-size: 10px;
   font-weight: 500;
   letter-spacing: 3px;
@@ -134,23 +146,23 @@ body {
   border: 1px solid var(--green-border);
   padding: 4px 14px;
   border-radius: 99px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-#profile h1 {
+h1 {
   font-family: 'Syne', sans-serif;
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.5px;
   margin-bottom: 6px;
 }
 
-#profile .subtitle {
+.subtitle {
   font-size: 13px;
   font-weight: 300;
   color: var(--text-muted);
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .divider {
@@ -173,13 +185,12 @@ ul {
 ul li {
   animation: slideUp 0.5s ease both;
 }
-
-ul li:nth-child(1) { animation-delay: 0.15s; }
-ul li:nth-child(2) { animation-delay: 0.25s; }
-ul li:nth-child(3) { animation-delay: 0.35s; }
+ul li:nth-child(1) { animation-delay: 0.1s; }
+ul li:nth-child(2) { animation-delay: 0.2s; }
+ul li:nth-child(3) { animation-delay: 0.3s; }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -248,7 +259,6 @@ ul li a:hover .btn-icon {
 .arrow {
   color: rgba(255, 255, 255, 0.2);
   font-size: 16px;
-  line-height: 1;
 }
 
 /* =====================
@@ -290,14 +300,127 @@ footer a:hover {
 }
 
 /* =====================
-   RESPONSIVO
+   DESKTOP (≥ 768px)
 ===================== */
-@media (max-width: 480px) {
-  #container {
-    padding: 36px 20px 28px;
+@media (min-width: 768px) {
+
+  body {
+    align-items: center;
   }
 
-  #profile h1 {
-    font-size: 28px;
+  #container {
+    max-width: 860px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0;
+    min-height: 520px;
+    border: 1px solid rgba(34, 197, 94, 0.12);
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.015);
+    backdrop-filter: blur(6px);
+  }
+
+  /* Coluna esquerda aparece */
+  #left-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 52px 44px;
+    border-right: 1px solid rgba(34, 197, 94, 0.08);
+    animation: fadeIn 0.7s ease both;
+  }
+
+  #left-col .logo-ring {
+    margin-bottom: 22px;
+  }
+
+  #left-col h1 {
+    font-size: 44px;
+    margin-bottom: 6px;
+  }
+
+  #left-col .subtitle {
+    margin-bottom: 20px;
+  }
+
+  #left-col .divider {
+    margin-bottom: 20px;
+  }
+
+  /* Perfil mobile some no desktop */
+  #profile-mobile {
+    display: none;
+  }
+
+  /* Coluna direita */
+  #right-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 52px 44px;
+  }
+
+  footer {
+    text-align: left;
+    margin-top: 24px;
+  }
+
+  /* Descrição */
+  .desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.3);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 280px;
+  }
+
+  /* Stats */
+  .stats-row {
+    display: flex;
+    gap: 12px;
+  }
+
+  .stat {
+    flex: 1;
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  .stat-lbl {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.28);
+  }
+}
+
+/* Desktop desc e stats escondidos no mobile */
+.desc,
+.stats-row {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desc,
+  .stats-row {
+    display: block;
+  }
+  .stats-row {
+    display: flex;
   }
 }
