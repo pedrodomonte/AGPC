@@ -514,3 +514,151 @@ footer a:hover { color: var(--green); }
   .desc { display: block; }
   .stats-row { display: flex; }
 }
+
+/* =====================
+   CONTACT LIST
+===================== */
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+/* =====================
+   CONTACT ITEM
+===================== */
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  width: 100%;
+
+  padding: 14px;
+  border-radius: 14px;
+
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+
+  text-decoration: none;
+
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease;
+}
+
+.contact-item:hover {
+  background: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.32);
+
+  transform:
+    translateY(-2px)
+    scale(1.01);
+
+  box-shadow:
+    0 0 0 1px rgba(34, 197, 94, 0.08),
+    0 8px 24px rgba(34, 197, 94, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+}
+
+
+/* =====================
+   CONTACT ICON
+===================== */
+
+.contact-icon {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 10px;
+
+  background: rgba(34, 197, 94, 0.08);
+  color: var(--green);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  font-size: 13px;
+}
+
+/* =====================
+   CONTACT INFO
+===================== */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.contact-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.92);
+}
+
+.contact-text {
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.45);
+}
+
+/* =====================
+   LINK STATES
+===================== */
+
+a.contact-item {
+  cursor: pointer;
+}
+
+a.contact-item:hover .contact-icon {
+  transform: scale(1.06);
+}
+
+.contact-icon {
+  transition: transform 0.22s ease;
+}
+
+/* =====================
+   MOBILE AJUSTE
+===================== */
+
+@media (max-width: 480px) {
+
+  .contact-item {
+    padding: 13px;
+    gap: 12px;
+  }
+
+  .contact-title {
+    font-size: 12px;
+  }
+
+  .contact-text {
+    font-size: 11px;
+  }
+}
+
+.contact-item:hover .contact-icon {
+  transform: scale(1.12) rotate(6deg);
+
+  background: rgba(34, 197, 94, 0.14);
+
+  box-shadow:
+    0 0 12px rgba(34, 197, 94, 0.18);
+}
+
+.contact-item:hover .contact-title {
+  color: #ffffff;
+}
+
+.contact-item:hover .contact-text {
+  color: rgba(255,255,255,0.68);
+}
