@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="AGPC Tech Solutions – Assistência Técnica em Computadores." />
     <title>AGPC – Assistência Técnica</title>
- 
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500&display=swap" rel="stylesheet" />
@@ -13,12 +13,12 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
- 
+
     <div class="bg-grid"></div>
     <div class="bg-glow"></div>
- 
+
     <div id="container">
- 
+
       <!-- COLUNA ESQUERDA (só desktop) -->
       <div id="left-col">
         <div class="logo-ring">
@@ -28,9 +28,7 @@
         <h1>AGPC</h1>
         <p class="subtitle">Soluções em manutenção e reparo</p>
         <div class="divider"></div>
-        <p class="desc">
-          Especialistas em manutenção e reparo de computadores. Atendimento rápido, diagnóstico preciso e garantia em todos os serviços.
-        </p>
+        <p class="desc">Especialistas em manutenção e reparo de computadores. Atendimento rápido, diagnóstico preciso e garantia em todos os serviços.</p>
         <div class="stats-row">
           <div class="stat">
             <span class="stat-num">+500</span>
@@ -46,10 +44,10 @@
           </div>
         </div>
       </div>
- 
+
       <!-- COLUNA DIREITA / mobile completo -->
       <div id="right-col">
- 
+
         <!-- Perfil mobile -->
         <div id="profile-mobile">
           <div class="logo-ring">
@@ -60,125 +58,156 @@
           <p class="subtitle">Soluções em manutenção e reparo</p>
           <div class="divider"></div>
         </div>
- 
-        <!-- Accordion -->
+
         <div id="direcionamento">
-          <ul>
- 
+          <ul class="main-list">
+
             <!-- Quem somos -->
-           <!-- Quem somos -->
-<li class="accordion-item">
-  <button class="accordion-btn" aria-expanded="false" aria-controls="panel-1">
-    <span class="btn-icon"><i class="fa-solid fa-users" aria-hidden="true"></i></span>
-    <span class="btn-label">Quem somos nós?</span>
-    <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
-  </button>
-  <div class="accordion-panel" id="panel-1">
-    <div class="accordion-content">
-      <p>A <strong>AGPC Tech Solutions</strong> nasceu com o objetivo de oferecer soluções completas em tecnologia, com foco em qualidade, agilidade e confiança.</p>
-      <p>Somos uma empresa especializada em assistência técnica e suporte para computadores, atendendo tanto clientes residenciais quanto empresas.</p>
-    </div>
-  </div>
-</li>
- 
+            <li class="accordion-item">
+              <button class="accordion-btn" aria-expanded="false">
+                <span class="btn-icon"><i class="fa-solid fa-users"></i></span>
+                <span class="btn-label">Quem somos nós?</span>
+                <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <p>A <strong>AGPC Tech Solutions</strong> nasceu com o objetivo de oferecer soluções completas em tecnologia, com foco em qualidade, agilidade e confiança.</p>
+                  <p>Somos uma empresa especializada em assistência técnica e suporte para computadores, atendendo tanto clientes residenciais quanto empresas.</p>
+                </div>
+              </div>
+            </li>
+
             <!-- Serviços -->
-        <li class="accordion-item">
-  <button class="accordion-btn" aria-expanded="false">
-    <span class="btn-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
-    <span class="btn-label">Serviços</span>
-    <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
-  </button>
+            <li class="accordion-item">
+              <button class="accordion-btn" aria-expanded="false">
+                <span class="btn-icon"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+                <span class="btn-label">Serviços</span>
+                <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+              </button>
+              <div class="accordion-panel">
+                <div class="accordion-content">
+                  <p class="services-intro">Serviços especializados em tecnologia, com foco em desempenho, segurança e continuidade operacional.</p>
 
-  <div class="accordion-panel">
-    <div class="accordion-content">
+                  <!-- Serviços aninhados -->
+                  <ul class="services-list">
 
-      <p class="services-intro">
-        Serviços em tecnologia focados em desempenho, segurança e confiabilidade.
-      </p>
+                    <li class="accordion-item nested">
+                      <button class="accordion-btn nested-btn" aria-expanded="false">
+                        <span class="service-icon"><i class="fa-solid fa-desktop"></i></span>
+                        <span class="btn-label">Manutenção</span>
+                        <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <div class="accordion-content nested-content">
+                          <p>Diagnóstico completo e reparo de problemas em hardware e software, corrigindo falhas, travamentos, superaquecimento e erros que afetam o desempenho do equipamento.</p>
+                        </div>
+                      </div>
+                    </li>
 
-      <ul class="services-list">
-        <li>
-          <span class="service-icon"><i class="fa-solid fa-desktop"></i></span>
-          <div>
-            <strong>Manutenção</strong>
-            <span>Reparo de hardware e software.</span>
-          </div>
-        </li>
+                    <li class="accordion-item nested">
+                      <button class="accordion-btn nested-btn" aria-expanded="false">
+                        <span class="service-icon"><i class="fa-solid fa-rotate"></i></span>
+                        <span class="btn-label">Formatação e Sistemas</span>
+                        <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <div class="accordion-content nested-content">
+                          <p>Instalação limpa do sistema operacional com drivers, programas essenciais e configurações otimizadas para garantir mais desempenho, estabilidade e organização.</p>
+                        </div>
+                      </div>
+                    </li>
 
-        <li>
-          <span class="service-icon"><i class="fa-solid fa-rotate"></i></span>
-          <div>
-            <strong>Formatação</strong>
-            <span>Instalação limpa e otimizada.</span>
-          </div>
-        </li>
+                    <li class="accordion-item nested">
+                      <button class="accordion-btn nested-btn" aria-expanded="false">
+                        <span class="service-icon"><i class="fa-solid fa-memory"></i></span>
+                        <span class="btn-label">Upgrade de Hardware</span>
+                        <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <div class="accordion-content nested-content">
+                          <p>Substituição e instalação de componentes como SSD, memória RAM, placa de vídeo e processador para melhorar velocidade, desempenho e vida útil do computador.</p>
+                        </div>
+                      </div>
+                    </li>
 
-        <li>
-          <span class="service-icon"><i class="fa-solid fa-memory"></i></span>
-          <div>
-            <strong>Upgrade</strong>
-            <span>Melhoria de desempenho.</span>
-          </div>
-        </li>
+                    <li class="accordion-item nested">
+                      <button class="accordion-btn nested-btn" aria-expanded="false">
+                        <span class="service-icon"><i class="fa-solid fa-gauge-high"></i></span>
+                        <span class="btn-label">Otimização</span>
+                        <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <div class="accordion-content nested-content">
+                          <p>Limpeza de arquivos desnecessários, ajustes no sistema e configurações avançadas para deixar o computador mais rápido, leve e eficiente no uso diário.</p>
+                        </div>
+                      </div>
+                    </li>
 
-        <li>
-          <span class="service-icon"><i class="fa-solid fa-gauge-high"></i></span>
-          <div>
-            <strong>Otimização</strong>
-            <span>Mais velocidade e estabilidade.</span>
-          </div>
-        </li>
+                    <li class="accordion-item nested">
+                      <button class="accordion-btn nested-btn" aria-expanded="false">
+                        <span class="service-icon"><i class="fa-solid fa-shield-halved"></i></span>
+                        <span class="btn-label">Segurança</span>
+                        <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <div class="accordion-content nested-content">
+                          <p>Remoção de vírus, malwares e ameaças, além da configuração de ferramentas de proteção para garantir mais segurança aos dados e ao sistema.</p>
+                        </div>
+                      </div>
+                    </li>
 
-        <li>
-          <span class="service-icon"><i class="fa-solid fa-shield-halved"></i></span>
-          <div>
-            <strong>Segurança</strong>
-            <span>Remoção de vírus.</span>
-          </div>
-        </li>
+                    <li class="accordion-item nested">
+                      <button class="accordion-btn nested-btn" aria-expanded="false">
+                        <span class="service-icon"><i class="fa-solid fa-screwdriver"></i></span>
+                        <span class="btn-label">Montagem de PCs</span>
+                        <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <div class="accordion-content nested-content">
+                          <p>Montagem personalizada de computadores para trabalho, estudos, edição ou jogos, com foco em desempenho, organização e compatibilidade das peças.</p>
+                        </div>
+                      </div>
+                    </li>
 
-        <li>
-          <span class="service-icon"><i class="fa-solid fa-screwdriver"></i></span>
-          <div>
-            <strong>Montagem</strong>
-            <span>PCs sob medida.</span>
-          </div>
-        </li>
+                    <li class="accordion-item nested">
+                      <button class="accordion-btn nested-btn" aria-expanded="false">
+                        <span class="service-icon"><i class="fa-solid fa-headset"></i></span>
+                        <span class="btn-label">Suporte Técnico</span>
+                        <span class="acc-arrow"><i class="fa-solid fa-chevron-down"></i></span>
+                      </button>
+                      <div class="accordion-panel">
+                        <div class="accordion-content nested-content">
+                          <p>Atendimento remoto ou presencial para resolução rápida de problemas técnicos, suporte preventivo e auxílio especializado em tecnologia.</p>
+                        </div>
+                      </div>
+                    </li>
 
-        <li>
-          <span class="service-icon"><i class="fa-solid fa-headset"></i></span>
-          <div>
-            <strong>Suporte</strong>
-            <span>Atendimento rápido.</span>
-          </div>
-        </li>
-      </ul>
+                  </ul>
+                </div>
+              </div>
+            </li>
 
-    </div>
-  </div>
-</li>
- 
-            <!-- Contato WhatsApp -->
+            <!-- Contato -->
             <li>
               <a href="https://wa.me/5531987903474" target="_blank" class="accordion-btn contact-btn">
-                <span class="btn-icon"><i class="fa-solid fa-phone" aria-hidden="true"></i></span>
+                <span class="btn-icon"><i class="fa-solid fa-phone"></i></span>
                 <span class="btn-label">Contato</span>
                 <span class="badge-whatsapp">
-                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> WhatsApp
+                  <i class="fa-brands fa-whatsapp"></i> WhatsApp
                 </span>
               </a>
             </li>
- 
+
           </ul>
         </div>
- 
+
         <footer>
-          <p>© 2026 <a href="https://www.linkedin.com/in/pedro-do-monte-a228663ba?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank">Pedro do Monte</a>. Todos os direitos reservados.</p>
+          <p>© 2026 <a href="https://br.linkedin.com/in/pedro-do-monte-a228663ba" target="_blank">Pedro do Monte</a>. Todos os direitos reservados.</p>
         </footer>
- 
+
       </div>
     </div>
- 
+
     <script src="./script.js"></script>
   </body>
 </html>

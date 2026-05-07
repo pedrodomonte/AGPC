@@ -1,29 +1,35 @@
-const accordionButtons = document.querySelectorAll(".accordion-btn");
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.accordion-btn[aria-expanded]');
 
-accordionButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling;
+      if (!panel || !panel.classList.contains('accordion-panel')) return;
 
-    // ignora o botão de contato (link)
-    if (btn.classList.contains("contact-btn")) return;
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
 
-    const panel = btn.nextElementSibling;
-    if (!panel) return; // <-- proteção crítica
+      // Fecha outros do mesmo nível
+      const parentList = btn.closest('ul');
+      if (parentList) {
+        parentList.querySelectorAll(':scope > li > .accordion-btn[aria-expanded="true"]').forEach(openBtn => {
+          if (openBtn !== btn) {
+            openBtn.setAttribute('aria-expanded', 'false');
+            const openPanel = openBtn.nextElementSibling;
+            if (openPanel) openPanel.classList.remove('open');
 
-    const isOpen = btn.getAttribute("aria-expanded") === "true";
+            // Fecha aninhados dentro do que foi fechado
+            openPanel?.querySelectorAll('.accordion-btn[aria-expanded="true"]').forEach(nested => {
+              nested.setAttribute('aria-expanded', 'false');
+              const np = nested.nextElementSibling;
+              if (np) np.classList.remove('open');
+            });
+          }
+        });
+      }
 
-    // fecha todos (SÓ botões reais)
-    document.querySelectorAll(".accordion-btn:not(.contact-btn)").forEach(b => {
-      b.setAttribute("aria-expanded", "false");
+      // Abre ou fecha o atual
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      panel.classList.toggle('open', !isOpen);
     });
-
-    document.querySelectorAll(".accordion-panel").forEach(p => {
-      p.classList.remove("open");
-    });
-
-    // abre o clicado
-    if (!isOpen) {
-      btn.setAttribute("aria-expanded", "true");
-      panel.classList.add("open");
-    }
   });
 });
