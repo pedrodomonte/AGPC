@@ -33,3 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+function animarContador(elemento, destino, duracao) {
+  let inicio = 0;
+  const incremento = destino / (duracao / 16);
+
+  const timer = setInterval(() => {
+    inicio += incremento;
+
+    if (inicio >= destino) {
+      inicio = destino;
+      clearInterval(timer);
+    }
+
+    elemento.textContent = elemento.dataset.prefix + Math.floor(inicio) + elemento.dataset.suffix;
+  }, 16);
+}
+
+document.querySelectorAll('.stat-num').forEach(el => {
+  animarContador(el, parseInt(el.dataset.valor), 1000);
+});
