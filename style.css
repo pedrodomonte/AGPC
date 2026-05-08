@@ -71,6 +71,11 @@ body {
   margin: 0 auto;
   padding: 48px 24px 32px;
   animation: fadeIn 0.7s ease both;
+
+  /* CORREÇÃO: centraliza filhos no mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @keyframes fadeIn {
@@ -81,6 +86,16 @@ body {
 #left-col { display: none; }
 
 /* =====================
+   COLUNA DIREITA — MOBILE
+===================== */
+#right-col {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =====================
    PERFIL MOBILE
 ===================== */
 #profile-mobile {
@@ -89,6 +104,14 @@ body {
   align-items: center;
   text-align: center;
   margin-bottom: 8px;
+  width: 100%;
+}
+
+/* =====================
+   DIRECIONAMENTO
+===================== */
+#direcionamento {
+  width: 100%;
 }
 
 /* =====================
@@ -407,6 +430,7 @@ footer {
   text-align: center;
   font-size: 11px;
   color: rgba(255, 255, 255, 0.18);
+  width: 100%;
 }
 
 footer a {
@@ -437,6 +461,7 @@ footer a:hover { color: var(--green); }
     overflow: hidden;
     background: rgba(255, 255, 255, 0.015);
     backdrop-filter: blur(6px);
+    align-items: unset;
   }
 
   #left-col {
@@ -462,10 +487,18 @@ footer a:hover { color: var(--green); }
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
     padding: 52px 44px;
   }
 
-  footer { text-align: left; margin-top: 24px; }
+  #direcionamento {
+    width: 100%;
+  }
+
+  footer {
+    text-align: left;
+    margin-top: 24px;
+  }
 
   .desc {
     display: block;
@@ -518,7 +551,6 @@ footer a:hover { color: var(--green); }
 /* =====================
    CONTACT LIST
 ===================== */
-
 .contact-list {
   display: flex;
   flex-direction: column;
@@ -529,22 +561,16 @@ footer a:hover { color: var(--green); }
 /* =====================
    CONTACT ITEM
 ===================== */
-
 .contact-item {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-
   width: 100%;
-
   padding: 14px;
   border-radius: 14px;
-
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.05);
-
   text-decoration: none;
-
   transition:
     background 0.22s ease,
     border-color 0.22s ease,
@@ -554,44 +580,33 @@ footer a:hover { color: var(--green); }
 .contact-item:hover {
   background: rgba(34, 197, 94, 0.06);
   border-color: rgba(34, 197, 94, 0.32);
-
-  transform:
-    translateY(-2px)
-    scale(1.01);
-
+  transform: translateY(-2px) scale(1.01);
   box-shadow:
     0 0 0 1px rgba(34, 197, 94, 0.08),
     0 8px 24px rgba(34, 197, 94, 0.08),
     inset 0 1px 0 rgba(255,255,255,0.03);
 }
 
-
 /* =====================
    CONTACT ICON
 ===================== */
-
 .contact-icon {
   width: 34px;
   height: 34px;
-
   border-radius: 10px;
-
   background: rgba(34, 197, 94, 0.08);
   color: var(--green);
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
   font-size: 13px;
+  transition: transform 0.22s ease;
 }
 
 /* =====================
    CONTACT INFO
 ===================== */
-
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -613,25 +628,14 @@ footer a:hover { color: var(--green); }
 /* =====================
    LINK STATES
 ===================== */
-
 a.contact-item {
   cursor: pointer;
-}
-
-a.contact-item:hover .contact-icon {
-  transform: scale(1.06);
-}
-
-.contact-icon {
-  transition: transform 0.22s ease;
 }
 
 /* =====================
    MOBILE AJUSTE
 ===================== */
-
 @media (max-width: 480px) {
-
   .contact-item {
     padding: 13px;
     gap: 12px;
@@ -648,11 +652,8 @@ a.contact-item:hover .contact-icon {
 
 .contact-item:hover .contact-icon {
   transform: scale(1.12) rotate(6deg);
-
   background: rgba(34, 197, 94, 0.14);
-
-  box-shadow:
-    0 0 12px rgba(34, 197, 94, 0.18);
+  box-shadow: 0 0 12px rgba(34, 197, 94, 0.18);
 }
 
 .contact-item:hover .contact-title {
